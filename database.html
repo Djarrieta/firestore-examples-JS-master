@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>  
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-storage.js"></script>
+</head>
+<body>
+    <script>
+        //FIREBASE
+        var config = {
+            apiKey: "AIzaSyAnxXJlQC9mOyNnSYzV4utnjYXF29fWoC8",
+            authDomain: "soysanjuanero-a5c1c.firebaseapp.com",
+            databaseURL: "https://soysanjuanero-a5c1c.firebaseio.com",
+            projectId: "soysanjuanero-a5c1c",
+            storageBucket: "soysanjuanero-a5c1c.appspot.com",
+            messagingSenderId: "344513006950",
+            appId: "1:344513006950:web:10250cd62d0e7236d20ca7",
+            measurementId: "G-5DX7T59E32"
+        };
+        
+        firebase.initializeApp(config);
+        const storage = firebase.storage().ref();
+        var listRef = storage.child('PlaylistSoySanjuanero');
+        let PLAYLIST=[]
+
+        listRef.listAll()
+        .then(res=>{
+            const items=res.items
+            items.forEach(item=>item.getDownloadURL().then(res=>PLAYLIST.push(res)));
+        })
+        .then(
+            //ACA CARGO ORDEN VECTOR Y SIG CANCION
+        )
+    </script>
+</body>
+</html>
